@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import Card from "../Components/Card";
 import { useNavigate } from 'react-router-dom';
+import { Link,Route,Routes } from "react-router-dom";
 
 function Home()
 {       
@@ -60,10 +61,7 @@ function Home()
     {
         setfilter('marketing');
     }
-    function addmeet()
-    {
-        Navigate('/meet')
-    }
+   
     
     return(
         <>
@@ -72,15 +70,15 @@ function Home()
             <div className="link text-blue-500 text-5xl font-bold">Zoon.com</div>
 
             <div className="gap-5 flex">
-                <button onClick={addmeet} className="bg-blue-200 px-6 font-semibold py-2 rounded-[150px] hover:bg-black hover:text-white transition-all shadow-md ">Add Meetings</button>
+                <Link to={'/meet'} className="bg-blue-200 px-6 font-semibold py-2 rounded-[150px] hover:bg-black hover:text-white transition-all shadow-md ">Add Meetings</Link>
                 <button className="font-bold text-blue-500">My Meetings</button>
             </div>
         </nav>
 
             <div className="w-[1150px] m-auto mt-32 flex gap-10">
-                <button onClick={devHandler} className="bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-md">DEVELOPERS</button>
-                <button onClick={opHandler} className="bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-md">OPERATIONS</button>
-                <button onClick={maHandler} className="bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-md">MARKETING</button>
+                <button onClick={devHandler} className={filter=='dev'? "bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px]  shadow-md" :"bg-gray-300 text-black-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-sm border border-neutral-200" }>DEVELOPERS</button>
+                <button onClick={opHandler} className={filter=='operation'? "bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px]  shadow-md" :"bg-gray-300 text-black-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-sm border border-neutral-200" }>OPERATIONS</button>
+                <button onClick={maHandler} className={filter=='marketing'? "bg-orange-100 text-orange-400 px-8 font-semibold py-3 rounded-[10px]  shadow-md" : "bg-gray-300 text-black-400 px-8 font-semibold py-3 rounded-[10px] transition-all shadow-sm border border-neutral-200"}>MARKETING</button>
                 
             </div>
 
